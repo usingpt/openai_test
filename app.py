@@ -30,6 +30,7 @@ def communicate():
 
 # Building UI
 st.title("My IT Risk and Control Assistant")
+st.image("robot.jfif")
 st.write("I am a chatbot based on ChatGPT API, specialised on IT general controls, application controls, SOX regulation, internal control, and internal audit")
 
 user_input = st.text_input("Please enter your message.", key="user_input", on_change=communicate)
