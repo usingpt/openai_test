@@ -1,17 +1,16 @@
-
 import streamlit as st
 import openai
 
-# Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
+# Streamlit Community Cloud - get OpenAI API key in the Secrets
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
-# st.session_stateを使いメッセージのやりとりを保存
+# st.session_state - save the conversation
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": "あなたは優秀なアシスタントAIです。"}
+        {"role": "system", "content": st.secrets.AppSettings.chatbot_setting}
         ]
 
-# チャットボットとやりとりする関数
+# Function to communicate with chatbot
 def communicate():
     messages = st.session_state["messages"]
 
@@ -26,19 +25,19 @@ def communicate():
     bot_message = response["choices"][0]["message"]
     messages.append(bot_message)
 
-    st.session_state["user_input"] = ""  # 入力欄を消去
+    st.session_state["user_input"] = ""  # Remove the existing input
 
 
-# ユーザーインターフェイスの構築
-st.title("My AI Assistant")
-st.write("ChatGPT APIを使ったチャットボットです。")
+# Building UI
+st.title("My IT Risk and Control Assistant")
+st.write("I am a chatbot based on ChatGPT API, specialised on IT general controls, application controls, SOX regulation, internal control, and internal audit")
 
-user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
+user_input = st.text_input("Please enter your message.", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
-    for message in reversed(messages[1:]):  # 直近のメッセージを上に
+    for message in reversed(messages[1:]):  # Move the latest to the top
         speaker = "🙂"
         if message["role"]=="assistant":
             speaker="🤖"
