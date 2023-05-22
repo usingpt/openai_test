@@ -29,7 +29,7 @@ def communicate():
 
 
 # Building UI
-st.title("My IT Risk and Control Assistant")
+st.title("Shingo's IT Risk and Control Assistant")
 st.image("robot.png")
 st.write("I am a chatbot based on ChatGPT API, specialised on IT general controls, application controls, SOX regulation, internal control, and internal audit")
 
