@@ -29,7 +29,6 @@ def communicate():
 
     st.session_state["user_input"] = ""  # Remove the existing input
 
-
 # Building UI
 st.title("Shingo's IT Risk and Control Assistant")
 st.image("robot.png")
