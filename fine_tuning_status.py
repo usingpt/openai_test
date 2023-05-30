@@ -6,6 +6,7 @@ import json
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
 def get_fine_tune_status():
+    print(f"*************CALLING GET_FINE_TUNE_STATUS called!!")
     # Retrieve the fine-tuning process details using the OpenAI package
     fine_tune = openai.FineTune.retrieve("ft-7R7ZQzwszShH08dXxbbiYldy")
 
@@ -18,6 +19,7 @@ def get_fine_tune_status():
     return fine_tune['status'], fine_tune.get('fine_tuned_model', None)
 
 # Call the function to get the fine-tuning status and model ID
+print(f"*************CALLING GET_FINE_TUNE_STATUS")
 status, fine_tuned_model_id = get_fine_tune_status()
 print(f"*************Fine-tune status: {status}")
 print(f"*************Fine-tuned model ID: {fine_tuned_model_id}")
