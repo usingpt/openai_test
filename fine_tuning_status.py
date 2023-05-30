@@ -26,8 +26,6 @@ print(f"*************Fine-tuned model ID: {fine_tuned_model_id}")
 
 print(f"*************Now Asking Question:")
 
-user_input = st.text_input("Please enter your message.", key="user_input", on_change=communicate)
-print(st.session_state["user_input"])
 
 def communicate():
 	messages = st.session_state["messages"]
@@ -42,3 +40,6 @@ def communicate():
 	st.write(response["choices"][0]["text"])
 
 	st.session_state["user_input"] = ""
+
+user_input = st.text_input("Please enter your message.", key="user_input", on_change=communicate)
+print(st.session_state["user_input"])
