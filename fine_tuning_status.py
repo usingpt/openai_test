@@ -28,11 +28,10 @@ print(f"*************Now Asking Question:")
 
 
 def communicate():
-	messages = st.session_state["messages"]
-	
+
 	response = openai.Completion.create(
 		model="davinci:ft-personal-2023-05-30-19-10-49",
-		prompt=user_input)
+		prompt=st.session_state["user_input"])
 	print(response)
 
 	bot_message = response["choices"][0]["text"]
