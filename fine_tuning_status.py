@@ -23,3 +23,11 @@ print(f"*************CALLING GET_FINE_TUNE_STATUS")
 status, fine_tuned_model_id = get_fine_tune_status()
 print(f"*************Fine-tune status: {status}")
 print(f"*************Fine-tuned model ID: {fine_tuned_model_id}")
+
+print(f"*************Now Asking Question:")
+
+response = openai.Completion.create(
+	model="davinci:ft-personal-2023-05-30-19-10-49",
+	prompt="What is ITGCs?")
+print(response)
+st.write(response["choices"][0]["text"])
