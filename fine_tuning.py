@@ -13,12 +13,14 @@ upload_response = openai.File.create(
 )
 file_id = upload_response.id
 
+print('FILE_ID***************************************************************************')
 print(file_id)
+print('FILE_ID END***************************************************************************')
 fine_tune_response = openai.FineTune.create(training_file=file_id, model="davinci")
 
 print(fine_tune_response)
 
-fine_tune_id = 'ft-GKqIJtdK16UMNuq555mREmwT'
+fine_tune_id = fine_tune_response.id
 
 def get_fine_tune_status():
     # Retrieve the fine-tuning process details using the OpenAI package
