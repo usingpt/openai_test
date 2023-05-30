@@ -18,7 +18,7 @@ def communicate():
     messages.append(user_message)
 
     response = openai.ChatCompletion.create(
-        model="davinci:ft-personal-2023-05-30-19-10-49",
+        model="gpt-3.5-turbo",
         messages=messages,
 	top_p=1,
 	temperature=1
