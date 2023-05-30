@@ -23,3 +23,6 @@ print(f"*************CALLING GET_FINE_TUNE_STATUS")
 status, fine_tuned_model_id = get_fine_tune_status()
 print(f"*************Fine-tune status: {status}")
 print(f"*************Fine-tuned model ID: {fine_tuned_model_id}")
+
+print(f"*************Now Asking Question:")
+openai api completions.create -m davinci:ft-personal-2023-01-22-07-35-43 -p "What is ITGCs?"
