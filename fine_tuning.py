@@ -1,3 +1,4 @@
+import streamlit as st
 import openai
 import json
 
@@ -17,7 +18,7 @@ fine_tune_response = openai.FineTune.create(training_file=file_id, model="davinc
 
 print(fine_tune_response)
 
-fine_tune_id = 'fine_tune_response.id'
+fine_tune_id = 'ft-GKqIJtdK16UMNuq555mREmwT'
 
 def get_fine_tune_status():
     # Retrieve the fine-tuning process details using the OpenAI package
