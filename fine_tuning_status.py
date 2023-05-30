@@ -25,4 +25,7 @@ print(f"*************Fine-tune status: {status}")
 print(f"*************Fine-tuned model ID: {fine_tuned_model_id}")
 
 print(f"*************Now Asking Question:")
-openai api completions.create -m davinci:ft-personal-2023-05-30-19-10-49 -p "What is ITGCs?"
+response = openai.Completion.create(
+    model="davinci:ft-personal-2023-05-30-19-10-49",
+    prompt="What is ITGCs?")
+print(response)
